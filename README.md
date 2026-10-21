@@ -84,3 +84,11 @@ src/
 ├── index.html                  # Main HTML page
 └── styles.css                  # Global styles and design tokens
 ```
+
+<img width="1533" height="923" alt="Screenshot 2026-10-20 at 9 23 17 PM" src="https://github.com/user-attachments/assets/e87a4f36-b83c-482a-88d0-54fea610337b" />
+
+<img width="1692" height="901" alt="Screenshot 2026-10-20 at 9 22 50 PM" src="https://github.com/user-attachments/assets/b98d9030-7bd5-4ed5-ba9b-9b1a6f8b7b54" />
+
+<img width="1842" height="913" alt="Screenshot 2026-10-20 at 9 22 33 PM" src="https://github.com/user-attachments/assets/afc010b1-0d8e-4c04-977d-67ec09e75181" />
+
+<img width="1849" height="926" alt="Screenshot 2026-10-20 at 9 22 20 PM" src="https://github.com/user-attachments/assets/05f6614e-154b-42e1-91a6-8f544df1d90f" />
