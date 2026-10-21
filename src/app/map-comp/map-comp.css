@@ -1,0 +1,350 @@
+/* ==========================================================================
+   Header & Controls
+   ========================================================================== */
+.app-header {
+  text-align: center;
+  padding: 2.25rem 1rem 0.75rem;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-header .subtitle {
+  margin: 0.5rem 0 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.map-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1480px;
+  margin: 0.75rem auto 1.25rem;
+  padding: 0 24px;
+}
+
+.select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-label {
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.country-dropdown {
+  background-color: #1c2b44;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  min-width: 270px;
+}
+
+.country-dropdown:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+}
+
+.hover-status {
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+}
+
+.hover-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.hover-badge.active {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.hover-badge.idle {
+  background-color: #1c2b44;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.indicator-dot.idle {
+  background-color: #64748b;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   Layout Containers
+   ========================================================================== */
+.whole-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 0 24px 40px;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.left-column {
+  flex: 2.4;
+  min-width: 0;
+  background: radial-gradient(ellipse at 50% 50%, #225a84 0%, #17486e 65%, #103652 100%);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.4), inset 0 0 50px rgba(10, 30, 48, 0.45);
+  overflow: hidden;
+}
+
+.right-column {
+  flex: 1;
+  max-width: 360px;
+  min-width: 280px;
+  position: sticky;
+  top: 24px;
+}
+
+/* ==========================================================================
+   SVG Map Styling (Realistic Physical Cartography)
+   ========================================================================== */
+.map {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+path {
+  fill: var(--map-land);
+  stroke: var(--map-stroke);
+  stroke-width: 0.5px;
+  cursor: pointer;
+  transition: fill 0.18s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.18s ease, filter 0.18s ease;
+}
+
+path:hover {
+  fill: var(--accent-hover);
+  stroke: #ffffff;
+  stroke-width: 0.8px;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
+}
+
+path.selected {
+  fill: var(--accent-primary) !important;
+  stroke: #ffffff !important;
+  stroke-width: 1px !important;
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.7));
+}
+
+/* ==========================================================================
+   Country Details Card
+   ========================================================================== */
+.country-info {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 14px 30px -5px rgba(0, 0, 0, 0.35);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.country-code-pill {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  letter-spacing: 0.05em;
+}
+
+/* Detail list items */
+.country-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-item {
+  padding: 12px 16px;
+  background: var(--bg-card-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.detail-item:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  background: #1f314c;
+  transform: translateX(2px);
+}
+
+.detail-item p {
+  margin: 0;
+  font-size: 0.925rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.detail-item strong {
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+/* Loading State */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  gap: 16px;
+  text-align: center;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(56, 189, 248, 0.2);
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.status-message {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Error State */
+.error-container {
+  padding: 16px;
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  border-radius: 10px;
+}
+
+.error-message {
+  color: #fda4af;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Placeholder State */
+.placeholder-state {
+  text-align: center;
+  padding: 40px 16px;
+}
+
+.placeholder-message {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  margin: 0 0 6px;
+}
+
+.placeholder-subtext {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 960px) {
+  .whole-container {
+    flex-direction: column;
+    padding: 0 16px 32px;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+    flex: none;
+    position: static;
+    max-width: none;
+  }
+
+  .map-controls {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 16px;
+  }
+
+  .country-dropdown {
+    width: 100%;
+  }
+
+  .hover-status {
+    justify-content: center;
+  }
+
+  .app-header h1 {
+    font-size: 1.75rem;
+  }
+}

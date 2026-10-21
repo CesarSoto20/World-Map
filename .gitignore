@@ -1,0 +1,68 @@
+# ==============================================================================
+# Git Ignore Configuration for Angular & TypeScript Workspace
+# ==============================================================================
+
+# Compiled & Build Output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Dependencies
+/node_modules
+
+# Angular CLI, Caches & Local Configs
+/.angular
+.angular-config.json
+.sass-cache/
+
+# Node & Package Managers
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment & Secrets (Prevent accidental leaks)
+.env
+.env.*
+!.env.example
+
+# Testing & Coverage
+/coverage
+karma-coverage/
+testem.log
+/connect.lock
+/libpeerconnection.log
+/typings
+
+# IDEs & Text Editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.history/
+
+# Visual Studio Code (Keep project-recommended settings)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Operating System Files (macOS & Windows)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
